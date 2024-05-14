@@ -20,5 +20,13 @@ pipeline {
         sh 'mvn clean package'
       }
     }
+    stage('Static Code Analysis'){
+	steps{
+	  withSonarQubeEnv('sonar-server'){
+		sh '$SONAR_SCANNER/bin/sonarqube -Dsonar.projectName=spring-boot-cicd -Dsonar.projectKey=spring-boot-cicd'
+          }
+	}
+    }
+	
 }
 }
