@@ -5,7 +5,7 @@ pipeline {
 	maven 'maven'
   }
   environment{
-	SONAR_SCANNER = tool 'sonar-scanner
+	SONAR_SCANNER = tool 'sonar-scanner'
   }	
   stages {
     stage('Checkout') {
