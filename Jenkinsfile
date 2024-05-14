@@ -29,14 +29,10 @@ pipeline {
     }
     stage("Docker Build & Deploymnet"){
 	steps{
-	    script{
-	       withDockerRegistry(toolName: 'docker'){
 		   sh 'docker build -t ultimate-cicd-spring .'
 		   sh 'docker stop ulimate-spring && docker rm ultimate-spring || true'
 		   sh 'docker run -itd --name ultimate-spring -p 8081:8081 ultimate-cicd-spring'
-		}
-	    }
-	}
+	}    
     }
 }
 }
