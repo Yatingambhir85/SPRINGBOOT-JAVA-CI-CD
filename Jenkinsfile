@@ -5,7 +5,7 @@ pipeline {
 	maven 'maven'
   }
   environment{
-	SONAR_SCANNER = tool 'sonarqube'
+	SONAR_SCANNER = tool 'sonar-scanner
   }	
   stages {
     stage('Checkout') {
@@ -23,7 +23,7 @@ pipeline {
     stage('Static Code Analysis'){
 	steps{
 	  withSonarQubeEnv('sonar-server'){
-		sh '$SONAR_SCANNER/bin/sonarqube -Dsonar.projectName=spring-boot-cicd -Dsonar.projectKey=spring-boot-cicd'
+		sh '$SONAR_SCANNER/bin/sonar-scanner -Dsonar.projectName=spring-boot-cicd -Dsonar.projectKey=spring-boot-cicd'
           }
 	}
     }
