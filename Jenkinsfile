@@ -30,7 +30,7 @@ pipeline {
     stage("Docker Build & Deploymnet"){
 	steps{
 		   sh 'docker build -t ultimate-cicd-spring .'
-		   sh 'docker stop ulimate-spring && docker rm ultimate-spring || true'
+		   sh 'docker stop ultimate-spring && docker rm ultimate-spring || true'
 		   sh 'docker run -itd --name ultimate-spring -p 8010:8080 ultimate-cicd-spring'
 	}    
     }
